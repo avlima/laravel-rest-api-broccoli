@@ -11,7 +11,7 @@ class PersonServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->singleton(['PersonRepository' => PersonRepositoryInterface::class], function () {
+        $this->app->singleton(PersonRepositoryInterface::class, function () {
             return new PersonRepository();
         });
 

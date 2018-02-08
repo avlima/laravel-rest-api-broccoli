@@ -4,9 +4,16 @@ namespace App\Api\V1\Person\Contracts;
 
 
 use App\Api\V1\Person\Models\PersonModel;
+use Illuminate\Database\Eloquent\Collection;
 
 interface PersonRepositoryInterface
 {
+
+    /**
+     * @return Collection
+     */
+    public function getAll(): Collection;
+
     /**
      * @param array $data
      * @return PersonModel
@@ -15,14 +22,14 @@ interface PersonRepositoryInterface
 
     /**
      * @param array $data
-     * @param int $id
+     * @param string $uuid
      * @return PersonModel
      */
-    public function update(array $data, int $id): PersonModel;
+    public function update(array $data, string $uuid): PersonModel;
 
     /**
-     * @param int $id
+     * @param string $uuid
      * @return bool
      */
-    public function delete(int $id): bool;
+    public function delete(string $uuid): bool;
 }

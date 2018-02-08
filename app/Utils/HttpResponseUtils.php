@@ -2,13 +2,15 @@
 
 namespace App\Utils;
 
+use App\Enum\HttpResponseStatusCodeEnum;
 use SoapBox\Formatter\Formatter;
 
 trait HttpResponseUtils
 {
     /**
-     * @param array $data
+     * @param array  $data
      * @param string $type
+     *
      * @return mixed
      */
     static function httpResponse(array $data, string $type = 'json')
@@ -35,42 +37,27 @@ trait HttpResponseUtils
                 $result = false;
         }
 
-        if(!$result){
-            abort(400, "The reported return type '{$type}' is invalid");
+        if (!$result) {
+            return response(
+                self::httpClientError("The reported return type '{$type}' is invalid"),
+                HttpResponseStatusCodeEnum::BAD_REQUEST)
+                ->header("Content-Type", "text/json");
         }
+
         return $result;
     }
 
     /**
      * Return Bad Request.
-     * @param int $code
+     *
      * @param string $message
+     *
      * @return array
      */
-    static function httpClientError(int $code, string $message = ''): array
+    static function httpClientError(string $message = ''): array
     {
         return [
-            'status' => 'error',
-            'code' => $code,
             'message' => $message,
-            'data' => ''
-        ];
-    }
-
-    /**
-     * Return Http Success.
-     * @param int $code
-     * @param $data
-     * @param string $message
-     * @return array
-     */
-    static function httpSuccess(int $code, $data, string $message = ''): array
-    {
-        return [
-            'status' => 'success',
-            'code' => $code,
-            'message' => $message,
-            'data' => $data
         ];
     }
 }

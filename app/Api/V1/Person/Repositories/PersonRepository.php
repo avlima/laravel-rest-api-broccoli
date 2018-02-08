@@ -9,9 +9,18 @@ use App\Enum\HttpResponseStatusCodeEnum;
 use App\Enum\ResponseEnum;
 use App\Utils\HelperUtils;
 use DB;
+use Illuminate\Database\Eloquent\Collection;
 
 class PersonRepository implements PersonRepositoryInterface
 {
+
+    /**
+     * @return Collection
+     */
+    public function getAll(): Collection
+    {
+        return PersonModel::all();
+    }
 
     /**
      * @param array $data
@@ -30,10 +39,10 @@ class PersonRepository implements PersonRepositoryInterface
 
     /**
      * @param array $data
-     * @param int $id
+     * @param string $id
      * @return PersonModel
      */
-    public function update(array $data, int $id): PersonModel
+    public function update(array $data, string $id): PersonModel
     {
         return DB::transaction(function () use ($data, $id) {
 
@@ -44,10 +53,10 @@ class PersonRepository implements PersonRepositoryInterface
     }
 
     /**
-     * @param int $id
+     * @param string $id
      * @return bool
      */
-    public function delete(int $id): bool
+    public function delete(string $id): bool
     {
         // TODO: Implement delete() method.
     }
@@ -55,10 +64,10 @@ class PersonRepository implements PersonRepositoryInterface
 
     /**
      * @param array $data
-     * @param int|null $id
+     * @param string|null $id
      * @return PersonModel
      */
-    private function savePerson(array $data, ?int $id = null): PersonModel
+    private function savePerson(array $data, ?string $id = null): PersonModel
     {
         if (!HelperUtils::validateFields($data, ['nome'])) {
             abort(HttpResponseStatusCodeEnum::NOT_FOUND, ResponseEnum::DATA_IS_NULL);
