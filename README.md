@@ -16,3 +16,5 @@ php artisan create-db
 php artisan migrate:install
 
 php artisan migrate
+
+php artisan db:seed

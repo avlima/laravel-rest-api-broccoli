@@ -19,6 +19,7 @@ Route::group(['prefix' => 'v1'], function () {
         [
             'only' => [
                 'index',
+                'show',
                 'store',
                 'update',
                 'destroy'

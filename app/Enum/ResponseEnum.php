@@ -19,4 +19,5 @@ abstract class ResponseEnum
     const ALREADY_EXISTS = 'Already exists';
     const HAS_RELATION = 'Has relation';
     const DATA_IS_NULL = 'Data is null';
+    const DOCUMENT_NOT_VALID = 'Document is not valid';
 }

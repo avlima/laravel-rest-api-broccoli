@@ -15,6 +15,12 @@ interface PersonRepositoryInterface
     public function getAll(): Collection;
 
     /**
+     * @param string $uuid
+     * @return PersonModel|null
+     */
+    public function getByUuid(string $uuid): ?PersonModel;
+
+    /**
      * @param array $data
      * @return PersonModel
      */
