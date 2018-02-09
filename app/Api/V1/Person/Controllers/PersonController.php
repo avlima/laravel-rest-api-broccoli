@@ -5,7 +5,6 @@ namespace  App\Api\V1\Person\Controllers;
 use App\Api\V1\Person\Contracts\PersonRepositoryInterface;
 use App\Api\V1\Person\Providers\PersonServiceProvider;
 use App\Enum\HttpResponseStatusCodeEnum;
-use App\Enum\ResponseEnum;
 use App\Http\Controllers\Controller;
 use App\Utils\HttpResponseUtils;
 use Illuminate\Http\Request;
@@ -38,46 +37,42 @@ class PersonController extends Controller
      */
     public function index(Request $request)
     {
-        $response_type = 'json';
-
         if (isset($request->response_type)) {
-            $response_type = $request->response_type;
+            $this->response_type = $request->response_type;
         }
 
-        $persons = $this->person_repository->getAll()->toArray();
+        $persons = $this->person_repository->getAll($request->all())->toArray();
 
-        if ($response_type !== 'json') {
-            $persons = self::httpResponse($persons, $response_type);
+        if ($this->response_type !== 'json') {
+            $persons = self::httpResponse($persons, $this->response_type);
         }
 
         return response($persons, HttpResponseStatusCodeEnum::OK)
-            ->header("Content-Type", "text/{$response_type}");
+            ->header("Content-Type", "text/{$this->response_type}");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param string $uuid
+     * @param string $id
      * @param Request $request
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(string $uuid, Request $request)
+    public function show(string $id, Request $request)
     {
-        $response_type = 'json';
-
         if (isset($request->response_type)) {
-            $response_type = $request->response_type;
+            $this->response_type = $request->response_type;
         }
 
-        $person = $this->person_repository->getByUuid($uuid)->toArray();
+        $person = $this->person_repository->getById($id)->toArray();
 
-        if ($response_type !== 'json') {
-            $person = self::httpResponse($person, $response_type);
+        if ($this->response_type !== 'json') {
+            $person = self::httpResponse($person, $this->response_type);
         }
 
         return response($person, HttpResponseStatusCodeEnum::OK)
-            ->header("Content-Type", "text/{$response_type}");
+            ->header("Content-Type", "text/{$this->response_type}");
     }
 
 
@@ -89,20 +84,18 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-        $response_type = 'json';
-
         if (isset($request->response_type)) {
-            $response_type = $request->response_type;
+            $this->response_type = $request->response_type;
         }
 
         $person = $this->person_repository->create($request->all())->toArray();
 
-        if ($response_type !== 'json') {
-            $person = self::httpResponse($person, $response_type);
+        if ($this->response_type !== 'json') {
+            $person = self::httpResponse($person, $this->response_type);
         }
 
         return response($person, HttpResponseStatusCodeEnum::OK)
-            ->header("Content-Type", "text/{$response_type}");
+            ->header("Content-Type", "text/{$this->response_type}");
     }
 
 
@@ -110,22 +103,43 @@ class PersonController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(string $id, Request $request)
     {
-        //
+        if (isset($request->response_type)) {
+            $this->response_type = $request->response_type;
+        }
+
+        $person = $this->person_repository->update($request->all(), $id)->toArray();
+
+        if ($this->response_type !== 'json') {
+            $person = self::httpResponse($person, $this->response_type);
+        }
+
+        return response($person, HttpResponseStatusCodeEnum::OK)
+            ->header("Content-Type", "text/{$this->response_type}");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  string $id
+     * @param Request $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(string $id, Request $request)
     {
-        //
+        if (isset($request->response_type)) {
+            $this->response_type = $request->response_type;
+        }
+
+        $this->person_repository->delete($id);
+
+        return response('', HttpResponseStatusCodeEnum::NO_CONTENT)
+            ->header("Content-Type", "text/{$this->response_type}");
     }
+
 }

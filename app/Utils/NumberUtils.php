@@ -8,6 +8,7 @@ class NumberUtils
 
     /**
      * @param $string
+     *
      * @return mixed
      */
     public static function numbersOnly(string $string)
@@ -16,12 +17,30 @@ class NumberUtils
     }
 
     /**
+     * @param $cpf
+     *
+     * @return mixed
+     */
+    public static function formatCpf(string $cpf)
+    {
+        $cpf = self::numbersOnly($cpf);
+
+        if (strlen($cpf) != 11) {
+            return false;
+        }
+
+        return preg_replace('/(\d{3})(\d{3})(\d{3})(\d{2})$/', '${1}.${2}.${3}-${4}', $cpf);
+    }
+
+    /**
      * @param string $cpf
+     *
      * @return mixed
      */
     public static function validateCpf(string $cpf)
     {
         $cpf = self::numbersOnly($cpf);
+
 
         if (strlen($cpf) != 11) {
             return false;
@@ -38,6 +57,7 @@ class NumberUtils
                 return false;
             }
         }
+
         return true;
     }
 

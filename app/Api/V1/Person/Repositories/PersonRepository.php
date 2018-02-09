@@ -16,20 +16,40 @@ class PersonRepository implements PersonRepositoryInterface
 {
 
     /**
+     * @param array $data
+     *
      * @return Collection
      */
-    public function getAll(): Collection
+    public function getAll(array $data): Collection
     {
-        return PersonModel::all();
+        if (empty($data) || (count($data) === 1 && ! empty(HelperUtils::array_get($data, 'response_type', null)))) {
+            return PersonModel::all();
+        }
+
+        $persons = PersonModel::where(function ($q) use ($data) {
+            if ( ! empty(HelperUtils::array_get($data, 'nome', null))) {
+                $q->where('nome', 'like', "%{$data['nome']}%");
+            }
+            if ( ! empty(HelperUtils::array_get($data, 'cpf', null)) && NumberUtils::formatCpf($data['cpf'])) {
+                $q->where('cpf', '=', NumberUtils::formatCpf($data['cpf']));
+            }
+            if ( ! empty(HelperUtils::array_get($data, 'data_nascimento', null))) {
+                $q->where('data_nascimento', '=', $data['data_nascimento']);
+            }
+        })->get();
+
+        return $persons;
+
     }
 
     /**
-     * @param string $uuid
+     * @param string $id
+     *
      * @return PersonModel|null
      */
-    public function getByUuid(string $uuid): ?PersonModel
+    public function getById(string $id): ?PersonModel
     {
-        $person = PersonModel::find($uuid);
+        $person = PersonModel::find($id);
 
         if (empty($person)) {
             abort(HttpResponseStatusCodeEnum::NOT_FOUND, ResponseEnum::NOT_FOUND);
@@ -40,6 +60,7 @@ class PersonRepository implements PersonRepositoryInterface
 
     /**
      * @param array $data
+     *
      * @return PersonModel
      */
     public function create(array $data): PersonModel
@@ -54,8 +75,9 @@ class PersonRepository implements PersonRepositoryInterface
     }
 
     /**
-     * @param array $data
+     * @param array  $data
      * @param string $id
+     *
      * @return PersonModel
      */
     public function update(array $data, string $id): PersonModel
@@ -70,45 +92,51 @@ class PersonRepository implements PersonRepositoryInterface
 
     /**
      * @param string $id
+     *
      * @return bool
      */
     public function delete(string $id): bool
     {
-        // TODO: Implement delete() method.
+        $person = PersonModel::destroy($id);
+
+        if ( ! $person) {
+            abort(HttpResponseStatusCodeEnum::NOT_FOUND, ResponseEnum::NOT_FOUND);
+        }
+
+        return $person;
     }
 
 
     /**
-     * @param array $data
+     * @param array       $data
      * @param string|null $id
+     *
      * @return PersonModel
      */
     private function savePerson(array $data, ?string $id = null): PersonModel
     {
-        if (!HelperUtils::validateFields($data, ['nome', 'cpf', 'data_nascimento'])) {
+        if ( ! HelperUtils::validateFields($data, ['nome', 'cpf', 'data_nascimento'])) {
             abort(HttpResponseStatusCodeEnum::NOT_FOUND, ResponseEnum::DATA_IS_NULL);
         }
 
-        if (NumberUtils::validateCpf($data['cpf'])) {
+        if ( ! NumberUtils::validateCpf($data['cpf'])) {
             abort(HttpResponseStatusCodeEnum::BAD_REQUEST, ResponseEnum::DOCUMENT_NOT_VALID);
         }
 
-//        $person = PersonModel::where([
-//            ['nome', $data['nome']]
-//        ])->first();
-//
-//        if ($person instanceof PersonModel && $person->id != $id) {
-//            abort(HttpResponseStatusCodeEnum::BAD_REQUEST, ResponseEnum::ALREADY_EXISTS);
-//        }
+        $person = PersonModel::where('nome', $data['nome'])->first();
+
+        if ($person instanceof PersonModel && $person->id != $id) {
+            abort(HttpResponseStatusCodeEnum::BAD_REQUEST, ResponseEnum::ALREADY_EXISTS);
+        }
 
         if (is_null($id)) {
             $person = new PersonModel();
-        } else if (!$person = PersonModel::find($id)) {
+        } elseif ( ! $person = PersonModel::find($id)) {
             abort(HttpResponseStatusCodeEnum::NOT_FOUND, ResponseEnum::NOT_FOUND);
         }
 
-        $person->nome = HelperUtils::array_get($data, 'nome', $person->nome ?: null);
-        $person->cpf = HelperUtils::array_get($data, 'cpf', $person->cpf ?: null);
+        $person->nome            = HelperUtils::array_get($data, 'nome', $person->nome ?: null);
+        $person->cpf             = HelperUtils::array_get($data, 'cpf', $person->cpf ?: null);
         $person->data_nascimento = HelperUtils::array_get($data, 'data_nascimento', $person->data_nascimento ?: null);
         $person->save();
 

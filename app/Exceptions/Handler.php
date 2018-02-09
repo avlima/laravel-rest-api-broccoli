@@ -16,19 +16,21 @@ class Handler extends ExceptionHandler
      *
      * @var array
      */
-    protected $dontReport = [
-        //
-    ];
+    protected $dontReport
+        = [
+            //
+        ];
 
     /**
      * A list of the inputs that are never flashed for validation exceptions.
      *
      * @var array
      */
-    protected $dontFlash = [
-        'password',
-        'password_confirmation',
-    ];
+    protected $dontFlash
+        = [
+            'password',
+            'password_confirmation',
+        ];
 
     /**
      * Report or log an exception.
@@ -36,6 +38,7 @@ class Handler extends ExceptionHandler
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
      * @param  \Exception $exception
+     *
      * @return void
      */
     public function report(Exception $exception)
@@ -47,21 +50,17 @@ class Handler extends ExceptionHandler
      * Render an exception into an HTTP response.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \Exception $exception
+     * @param  \Exception               $exception
+     *
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
     {
-//        Log::info($exception->getCode());
-//        if ($exception->getCode() === 0 && !isset($exception->getStatusCode()) || $exception->getStatusCode() === 0) {
-//            return parent::render($request, $exception);
-//        }
-
-        $code = (($exception->getCode()) ?: ($exception->httpStatusCode))
+        $code = (($exception->getCode())
+            ?: (($exception->getStatusCode()) ?: ($exception->httpStatusCode)));
 
         return response()->json(
-            HttpResponseUtils::httpClientError($exception->getMessage()),
-            ($exception->getCode() !== 0) ? $exception->getCode() : $exception->getStatusCode()
+            HttpResponseUtils::httpClientError($exception->getMessage()), $code
         );
     }
 }

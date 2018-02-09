@@ -8,6 +8,7 @@ abstract class ResponseEnum
     //Successful responses
     const OBJECT_CREATED = 'Object successfully created';
     const OBJECT_UPDATED = 'Object successfully updated';
+    const OBJECT_REMOVED = 'Object successfully removed';
 
     //Client error responses
     const BAD_REQUEST = 'Bad request';

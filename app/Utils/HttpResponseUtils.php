@@ -7,6 +7,8 @@ use SoapBox\Formatter\Formatter;
 
 trait HttpResponseUtils
 {
+    public $response_type = 'json';
+
     /**
      * @param array  $data
      * @param string $type
@@ -15,6 +17,10 @@ trait HttpResponseUtils
      */
     static function httpResponse(array $data, string $type = 'json')
     {
+        if (count($data) === 0) {
+            return $data;
+        }
+
         $formatter = Formatter::make($data, Formatter::ARR);
 
         switch ($type) {
@@ -57,6 +63,7 @@ trait HttpResponseUtils
     static function httpClientError(string $message = ''): array
     {
         return [
+            'status' => 'error',
             'message' => $message,
         ];
     }

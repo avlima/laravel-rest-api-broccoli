@@ -8,6 +8,7 @@ abstract class HttpResponseStatusCodeEnum
     //Successful responses
     const OK = 200;
     const CREATE = 201;
+    const NO_CONTENT = 204;
 
     //Client error responses
     const BAD_REQUEST = 400;

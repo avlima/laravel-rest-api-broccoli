@@ -180,7 +180,8 @@ return [
         /*
          * Custom Service Providers...
          */
-        \App\Api\V1\Person\Providers\PersonServiceProvider::class
+        \App\Api\V1\Person\Providers\PersonServiceProvider::class,
+        \App\Api\V1\Product\Providers\ProductServiceProvider::class
 
     ],
 

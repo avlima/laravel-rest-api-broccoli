@@ -10,32 +10,37 @@ interface PersonRepositoryInterface
 {
 
     /**
+     * @param array $data
+     *
      * @return Collection
      */
-    public function getAll(): Collection;
+    public function getAll(array $data): Collection;
 
     /**
-     * @param string $uuid
+     * @param string $id
+     *
      * @return PersonModel|null
      */
-    public function getByUuid(string $uuid): ?PersonModel;
+    public function getById(string $id): ?PersonModel;
 
     /**
      * @param array $data
+     *
      * @return PersonModel
      */
     public function create(array $data): PersonModel;
 
     /**
      * @param array $data
-     * @param string $uuid
+     * @param string $id
+     *
      * @return PersonModel
      */
-    public function update(array $data, string $uuid): PersonModel;
+    public function update(array $data, string $id): PersonModel;
 
     /**
-     * @param string $uuid
+     * @param string $id
      * @return bool
      */
-    public function delete(string $uuid): bool;
+    public function delete(string $id): bool;
 }

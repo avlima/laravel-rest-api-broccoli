@@ -14,7 +14,16 @@ use Illuminate\Http\Request;
 */
 
 Route::group(['prefix' => 'v1'], function () {
-//    Route::get('person/{response_type?}', '\App\Api\V1\Person\Controllers\PersonController@index');
+    Route::resource('product', '\App\Api\V1\Person\Controllers\ProductController',
+        [
+            'only' => [
+                'index',
+                'show',
+                'store',
+                'update',
+                'destroy'
+            ]
+        ]);
     Route::resource('person', '\App\Api\V1\Person\Controllers\PersonController',
         [
             'only' => [
