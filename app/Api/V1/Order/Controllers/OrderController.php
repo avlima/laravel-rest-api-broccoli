@@ -94,7 +94,7 @@ class OrderController extends Controller
             $order = self::httpResponse($order, $this->response_type);
         }
 
-        return response($order, HttpResponseStatusCodeEnum::OK)
+        return response($order, HttpResponseStatusCodeEnum::CREATE)
             ->header("Content-Type", "text/{$this->response_type}");
     }
 

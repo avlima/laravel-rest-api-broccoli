@@ -1,0 +1,1222 @@
+{
+	"info": {
+		"name": "UDS-Desafio",
+		"_postman_id": "34e7b434-f6f2-6f0f-0d32-b0b51fad7108",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Person",
+			"description": "",
+			"item": [
+				{
+					"name": "Person GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/person?response_type=json&nome=w&cpf=046.216.689-94&data_nascimento=1984-08-27",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"person"
+							],
+							"query": [
+								{
+									"key": "response_type",
+									"value": "json",
+									"equals": true
+								},
+								{
+									"key": "nome",
+									"value": "w",
+									"equals": true
+								},
+								{
+									"key": "cpf",
+									"value": "046.216.689-94",
+									"equals": true
+								},
+								{
+									"key": "data_nascimento",
+									"value": "1984-08-27",
+									"equals": true
+								}
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Person GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/person/26e20fa0-0d31-11e8-9cd3-93477534f4a0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"person",
+								"26e20fa0-0d31-11e8-9cd3-93477534f4a0"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Person Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Alberto Vieira de Limas\",\n    \"cpf\": \"046.216.689-94\",\n    \"data_nascimento\": \"1974-04-13\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/person",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"person"
+							]
+						},
+						"description": null
+					},
+					"response": [
+						{
+							"id": "33249ddb-ec04-473f-84ba-ed93c70db45c",
+							"name": "Person Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Alberto Vieira de Lima\",\n    \"cpf\": \"046.216.689-94\",\n    \"data_nascimento\": \"1974-04-13\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/person",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"person"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"_postman_previewtype": "parsed",
+							"header": [],
+							"cookie": [],
+							"responseTime": 0,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Person Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Costable News\",\n    \"cpf\": \"046.216.689-94\",\n    \"data_nascimento\": \"1986-08-05\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/person/e26af3e0-0c63-11e8-88fc-8ba55406b2be?response_type=xml",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"person",
+								"e26af3e0-0c63-11e8-88fc-8ba55406b2be"
+							],
+							"query": [
+								{
+									"key": "response_type",
+									"value": "xml",
+									"equals": true
+								}
+							]
+						},
+						"description": null
+					},
+					"response": [
+						{
+							"id": "63d9db1a-4403-4318-93ce-d2ae17e4106e",
+							"name": "Person Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Costable News\",\n    \"cpf\": \"046.216.689-94\",\n    \"data_nascimento\": \"1986-08-05\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/person/e26af3e0-0c63-11e8-88fc-8ba55406b2be?response_type=xml",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"person",
+										"e26af3e0-0c63-11e8-88fc-8ba55406b2be"
+									],
+									"query": [
+										{
+											"key": "response_type",
+											"value": "xml",
+											"equals": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"_postman_previewtype": "parsed",
+							"header": [],
+							"cookie": [],
+							"responseTime": 0,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Person Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/person/e26af3e0-0c63-11e8-88fc-8ba55406b2be",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"person",
+								"e26af3e0-0c63-11e8-88fc-8ba55406b2be"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"description": "",
+			"item": [
+				{
+					"name": "Product GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product?response_type=json&nome=a&codigo=3&preco_unitario=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product"
+							],
+							"query": [
+								{
+									"key": "response_type",
+									"value": "json",
+									"equals": true
+								},
+								{
+									"key": "nome",
+									"value": "a",
+									"equals": true
+								},
+								{
+									"key": "codigo",
+									"value": "3",
+									"equals": true
+								},
+								{
+									"key": "preco_unitario",
+									"value": "",
+									"equals": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product/cda017e0-0d46-11e8-b559-67f0fe11bb23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"cda017e0-0d46-11e8-b559-67f0fe11bb23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"codigo\": \"346X38811W\",\n    \"nome\": \"Placa de rede\",\n    \"preco_unitario\": 10\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "dd47bed0-58a8-4239-a43b-e45f59707217",
+							"name": "Product Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"codigo\": \"346X388\",\n    \"nome\": \"Placa mãe\",\n    \"preco_unitario\": 1023.15\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"product"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "close",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/json; charset=UTF-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Feb 2018 03:10:38 +0000",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Feb 2018 03:10:38 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Host",
+									"value": "localhost:8000",
+									"name": "Host",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.8",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60",
+									"name": "X-RateLimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58",
+									"name": "X-RateLimit-Remaining",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"responseTime": 141,
+							"body": "{\"codigo\":\"346X388\",\"nome\":\"Placa m\\u00e3e\",\"preco_unitario\":1023.15,\"id\":\"cda017e0-0d46-11e8-b559-67f0fe11bb23\"}"
+						}
+					]
+				},
+				{
+					"name": "Product Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"codigo\": \"123456\",\n    \"nome\": \"Placa mãe Gibabyte\",\n    \"preco_unitario\": 1023.19\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product/cda017e0-0d46-11e8-b559-67f0fe11bb23?response_type=xml",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"cda017e0-0d46-11e8-b559-67f0fe11bb23"
+							],
+							"query": [
+								{
+									"key": "response_type",
+									"value": "xml",
+									"equals": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "2482b19a-9a3d-4d90-bc69-8b1b514bb24e",
+							"name": "Product Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"codigo\": \"123456\",\n    \"nome\": \"Placa mãe Gibabyte\",\n    \"preco_unitario\": 1023.19\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/product/cda017e0-0d46-11e8-b559-67f0fe11bb23?response_type=xml",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"product",
+										"cda017e0-0d46-11e8-b559-67f0fe11bb23"
+									],
+									"query": [
+										{
+											"key": "response_type",
+											"value": "xml",
+											"equals": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "close",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/xml; charset=UTF-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Feb 2018 03:12:16 +0000",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Feb 2018 03:12:16 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Host",
+									"value": "localhost:8000",
+									"name": "Host",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.8",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60",
+									"name": "X-RateLimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58",
+									"name": "X-RateLimit-Remaining",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"responseTime": 138,
+							"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<xml><id>cda017e0-0d46-11e8-b559-67f0fe11bb23</id><codigo>123456</codigo><nome>Placa mãe Gibabyte</nome><preco_unitario>1023.19</preco_unitario></xml>\n"
+						}
+					]
+				},
+				{
+					"name": "Product Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product/88a01160-0d5e-11e8-ab85-61c20e5fa895",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"88a01160-0d5e-11e8-ab85-61c20e5fa895"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6c3bb9e1-558d-4132-9822-11f47c19694a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b99e0d3a-ea1e-40bd-8ee3-062ff07778f6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"description": "",
+			"item": [
+				{
+					"name": "Order GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/order?response_type=json&numero=2&total=95&emissao=&pessoa=wil&produto=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"order"
+							],
+							"query": [
+								{
+									"key": "response_type",
+									"value": "json",
+									"equals": true
+								},
+								{
+									"key": "numero",
+									"value": "2",
+									"equals": true
+								},
+								{
+									"key": "total",
+									"value": "95",
+									"equals": true
+								},
+								{
+									"key": "emissao",
+									"value": "",
+									"equals": true
+								},
+								{
+									"key": "pessoa",
+									"value": "wil",
+									"equals": true
+								},
+								{
+									"key": "produto",
+									"value": "",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Order GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/order/b63f8370-0d6f-11e8-9e92-e5e849ddea31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"b63f8370-0d6f-11e8-9e92-e5e849ddea31"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Order Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"emissao\": \"1985-03-23\",\n        \"pessoa\": {\n            \"id\": \"88a03ce0-0d5e-11e8-97a7-47da108226c2\"\n        },\n        \"item\": [\n            {\n                \"desconto\": 13,\n                \"id\": \"88a01160-0d5e-11e8-ab85-61c20e5fa895\"\n            },\n            {\n                \"desconto\": 11,\n                \"id\": \"88a13b30-0d5e-11e8-a97b-bfdfbde72461\"\n            }\n        ]\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"order"
+							]
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "d4065310-e77d-4101-9826-95e32a29eccb",
+							"name": "Order Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"numero\": 231,\n        \"emissao\": \"1985-03-23\",\n        \"pessoa\": {\n            \"id\": \"88a03ce0-0d5e-11e8-97a7-47da108226c2\"\n        },\n        \"item\": [\n            {\n                \"desconto\": 13,\n                \"id\": \"88a01160-0d5e-11e8-ab85-61c20e5fa895\"\n            },\n            {\n                \"desconto\": 11,\n                \"id\": \"88a13b30-0d5e-11e8-a97b-bfdfbde72461\"\n            }\n        ]\n    }"
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"order"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "close",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Feb 2018 07:30:04 +0000",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Feb 2018 07:30:04 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Host",
+									"value": "localhost:8000",
+									"name": "Host",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.8",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60",
+									"name": "X-RateLimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58",
+									"name": "X-RateLimit-Remaining",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"responseTime": 158,
+							"body": "{\"status\":\"error\",\"message\":\"Already exists\"}"
+						}
+					]
+				},
+				{
+					"name": "Order Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"emissao\": \"1985-03-23\",\n        \"pessoa\": {\n            \"id\": \"88a03ce0-0d5e-11e8-97a7-47da108226c2\"\n        },\n        \"item\": [\n            {\n                \"desconto\": 18,\n                \"id\": \"88a13b30-0d5e-11e8-a97b-bfdfbde72461\"\n            }\n        ]\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/order/bb7add40-0d6b-11e8-88e6-a35399dc2115",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"bb7add40-0d6b-11e8-88e6-a35399dc2115"
+							]
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "aad33cd2-e0f3-47bd-94a2-1ac62075ca86",
+							"name": "Order Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"numero\": 231,\n        \"emissao\": \"1985-03-23\",\n        \"pessoa\": {\n            \"id\": \"88a03ce0-0d5e-11e8-97a7-47da108226c2\"\n        },\n        \"item\": [\n            {\n                \"desconto\": 13,\n                \"id\": \"88a01160-0d5e-11e8-ab85-61c20e5fa895\"\n            },\n            {\n                \"desconto\": 11,\n                \"id\": \"88a13b30-0d5e-11e8-a97b-bfdfbde72461\"\n            }\n        ]\n    }"
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"order"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "close",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Feb 2018 07:30:04 +0000",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Feb 2018 07:30:04 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Host",
+									"value": "localhost:8000",
+									"name": "Host",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.8",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60",
+									"name": "X-RateLimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58",
+									"name": "X-RateLimit-Remaining",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"responseTime": 158,
+							"body": "{\"status\":\"error\",\"message\":\"Already exists\"}"
+						},
+						{
+							"id": "5c23aada-4ffe-4a2a-a2b2-4f38f47ef9ea",
+							"name": "Order Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"emissao\": \"1985-03-23\",\n        \"pessoa\": {\n            \"id\": \"88a03ce0-0d5e-11e8-97a7-47da108226c2\"\n        },\n        \"item\": [\n            {\n                \"desconto\": 19,\n                \"id\": \"88a01160-0d5e-11e8-ab85-61c20e5fa895\"\n            },\n            {\n                \"desconto\": 18,\n                \"id\": \"88a13b30-0d5e-11e8-a97b-bfdfbde72461\"\n            }\n        ]\n    }"
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/order/bb7add40-0d6b-11e8-88e6-a35399dc2115",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"bb7add40-0d6b-11e8-88e6-a35399dc2115"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "close",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/json; charset=UTF-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Feb 2018 07:50:19 +0000",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Feb 2018 07:50:19 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Host",
+									"value": "localhost:8000",
+									"name": "Host",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.8",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60",
+									"name": "X-RateLimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58",
+									"name": "X-RateLimit-Remaining",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"responseTime": 229,
+							"body": "{\"id\":\"bb7add40-0d6b-11e8-88e6-a35399dc2115\",\"numero\":269704247,\"emissao\":\"1985-03-23\",\"total\":3.9669}"
+						}
+					]
+				},
+				{
+					"name": "Order Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"emissao\": \"1985-03-23\",\n        \"pessoa\": {\n            \"id\": \"88a03ce0-0d5e-11e8-97a7-47da108226c2\"\n        },\n        \"item\": [\n            {\n                \"desconto\": 19,\n                \"id\": \"88a01160-0d5e-11e8-ab85-61c20e5fa895\"\n            },\n            {\n                \"desconto\": 18,\n                \"id\": \"88a13b30-0d5e-11e8-a97b-bfdfbde72461\"\n            }\n        ]\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/order/b63f8370-0d6f-11e8-9e92-e5e849ddea31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"b63f8370-0d6f-11e8-9e92-e5e849ddea31"
+							]
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"id": "a1882e78-4844-4edf-95b1-9f23eb89965b",
+							"name": "Order Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"numero\": 231,\n        \"emissao\": \"1985-03-23\",\n        \"pessoa\": {\n            \"id\": \"88a03ce0-0d5e-11e8-97a7-47da108226c2\"\n        },\n        \"item\": [\n            {\n                \"desconto\": 13,\n                \"id\": \"88a01160-0d5e-11e8-ab85-61c20e5fa895\"\n            },\n            {\n                \"desconto\": 11,\n                \"id\": \"88a13b30-0d5e-11e8-a97b-bfdfbde72461\"\n            }\n        ]\n    }"
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"order"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "text",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"key": "Connection",
+									"value": "close",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Feb 2018 07:30:04 +0000",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Feb 2018 07:30:04 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "Host",
+									"value": "localhost:8000",
+									"name": "Host",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.8",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60",
+									"name": "X-RateLimit-Limit",
+									"description": "Custom header"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58",
+									"name": "X-RateLimit-Remaining",
+									"description": "Custom header"
+								}
+							],
+							"cookie": [],
+							"responseTime": 158,
+							"body": "{\"status\":\"error\",\"message\":\"Already exists\"}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

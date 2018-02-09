@@ -2,6 +2,8 @@
 
 namespace App\Exceptions;
 
+use App\Enum\HttpResponseStatusCodeEnum;
+use App\Enum\ResponseEnum;
 use App\Utils\HttpResponseUtils;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -56,6 +58,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if (preg_match('/Integrity constraint violation/', $exception->getMessage())) {
+            return response()->json(
+                HttpResponseUtils::httpClientError(ResponseEnum::HAS_RELATION), HttpResponseStatusCodeEnum::BAD_REQUEST
+            );
+        }
+
         $code = (($exception->getCode())
             ?: (($exception->getStatusCode()) ?: ($exception->httpStatusCode)));
 

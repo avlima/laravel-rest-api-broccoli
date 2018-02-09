@@ -94,7 +94,7 @@ class ProductController extends Controller
             $product = self::httpResponse($product, $this->response_type);
         }
 
-        return response($product, HttpResponseStatusCodeEnum::OK)
+        return response($product, HttpResponseStatusCodeEnum::CREATE)
             ->header("Content-Type", "text/{$this->response_type}");
     }
 

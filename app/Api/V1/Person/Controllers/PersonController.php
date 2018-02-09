@@ -94,7 +94,7 @@ class PersonController extends Controller
             $person = self::httpResponse($person, $this->response_type);
         }
 
-        return response($person, HttpResponseStatusCodeEnum::OK)
+        return response($person, HttpResponseStatusCodeEnum::CREATE)
             ->header("Content-Type", "text/{$this->response_type}");
     }
 
