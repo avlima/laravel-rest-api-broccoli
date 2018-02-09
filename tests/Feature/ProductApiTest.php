@@ -34,7 +34,11 @@ class ProductApiTest extends TestCase
 
     public function testApiCreate()
     {
-        $response = $this->call('POST', '/api/v1/product', ['name' => 'Taylor']);
+        $response = $this->call('POST', '/api/v1/product', [
+            'codigo' => '346X38811W',
+            'nome' => 'Placa de rede',
+            'preco_unitario' => 10,
+        ]);
 
         $this->assertEquals(200, $response->status());
     }
