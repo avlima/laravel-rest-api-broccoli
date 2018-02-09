@@ -31,4 +31,11 @@ class ProductApiTest extends TestCase
 
         $this->assertEquals(200, $response->status());
     }
+
+    public function testApiCreate()
+    {
+        $response = $this->call('POST', '/api/v1/product', ['name' => 'Taylor']);
+
+        $this->assertEquals(200, $response->status());
+    }
 }
