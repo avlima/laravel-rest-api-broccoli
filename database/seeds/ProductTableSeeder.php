@@ -1,9 +1,9 @@
 <?php
 
-use App\Api\V1\Person\Models\ProductModel;
+use App\Api\V1\Product\Models\ProductModel;
 use Illuminate\Database\Seeder;
 
-class PersonTableSeeder extends Seeder
+class ProductTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

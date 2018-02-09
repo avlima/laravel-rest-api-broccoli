@@ -1,6 +1,6 @@
 <?php
 
-use App\Api\V1\Person\Models\ProductModel;
+use App\Api\V1\Person\Models\PersonModel;
 use Illuminate\Database\Seeder;
 
 class PersonTableSeeder extends Seeder
@@ -12,6 +12,6 @@ class PersonTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(ProductModel::class, 5)->create();
+        factory(PersonModel::class, 5)->create();
     }
 }

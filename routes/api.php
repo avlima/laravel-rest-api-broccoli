@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::group(['prefix' => 'v1'], function () {
-    Route::resource('product', '\App\Api\V1\Person\Controllers\ProductController',
+    Route::resource('product', '\App\Api\V1\Product\Controllers\ProductController',
         [
             'only' => [
                 'index',
