@@ -67,7 +67,7 @@ Fiquem tranquilos eu não sou tão mau, eu vou deixar minha collection do Postma
 A aplicação foi feita com design patterns.<br>
 A por favor né só `view -> controller -> view`? aqui não.<br>
 Aqui a parada é mais séria `request -> controller -> provider -> interface -> repository -> model`.<br>
-Deu medinho? Aqui é raís, sai pra lá nutella.
+Deu medinho? Aqui é raiz, sai pra lá nutella.
 
 #### Bora para o que interessa.
 
