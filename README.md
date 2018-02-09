@@ -107,7 +107,7 @@ php artisan serve
 ```bash
 php -S 127.0.0.1:8000 -t public/
 ```
-##Copyright and license
+## Copyright and license
 
 Code and documentation copyright (c) 2018, Code released under the New BSD license.
 
