@@ -13,6 +13,36 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['prefix' => 'v1'], function () {
+    Route::resource('product', '\App\Api\V1\Product\Controllers\ProductController',
+        [
+            'only' => [
+                'index',
+                'show',
+                'store',
+                'update',
+                'destroy'
+            ]
+        ]);
+    Route::resource('person', '\App\Api\V1\Person\Controllers\PersonController',
+        [
+            'only' => [
+                'index',
+                'show',
+                'store',
+                'update',
+                'destroy'
+            ]
+        ]);
+    Route::resource('order', '\App\Api\V1\Order\Controllers\OrderController',
+        [
+            'only' => [
+                'index',
+                'show',
+                'store',
+                'update',
+                'destroy'
+            ]
+        ]);
 });
+
