@@ -181,7 +181,8 @@ return [
          * Custom Service Providers...
          */
         \App\Api\V1\Person\Providers\PersonServiceProvider::class,
-        \App\Api\V1\Product\Providers\ProductServiceProvider::class
+        \App\Api\V1\Product\Providers\ProductServiceProvider::class,
+        \App\Api\V1\Order\Providers\OrderServiceProvider::class
 
     ],
 

@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -23,9 +22,6 @@ class CreateOrderTable extends Migration
             $table->date('emissao');
             $table->double('total', 8, 2);
         });
-
-//        DB::unprepared('ALTER TABLE pedido DROP PRIMARY KEY');
-//        DB::unprepared('ALTER TABLE pedido ADD PRIMARY KEY (id)');
     }
 
     /**

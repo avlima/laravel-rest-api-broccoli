@@ -20,8 +20,8 @@ php artisan migrate
 php artisan db:seed
 
 Api accept response types (json, xml, csv, array, yaml)
-Api Person
 
+# Routes
 +--------+-----------+------------------------+----------------+---------------------------------------------------------+------------+
 | Domain | Method    | URI                    | Name           | Action                                                  | Middleware |
 +--------+-----------+------------------------+----------------+---------------------------------------------------------+------------+
@@ -31,6 +31,8 @@ Api Person
 |        | PUT|PATCH | api/v1/person/{person} | person.update  | \App\Api\V1\Person\Controllers\PersonController@update  | api        |
 |        | DELETE    | api/v1/person/{person} | person.destroy | \App\Api\V1\Person\Controllers\PersonController@destroy | api        |
 +--------+-----------+------------------------+----------------+---------------------------------------------------------+------------+
+
+#Api Person
 
 GetAll (GET)
 

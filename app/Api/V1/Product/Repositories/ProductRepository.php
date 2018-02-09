@@ -8,7 +8,6 @@ use App\Api\V1\Product\Models\ProductModel;
 use App\Enum\HttpResponseStatusCodeEnum;
 use App\Enum\ResponseEnum;
 use App\Utils\HelperUtils;
-use App\Utils\NumberUtils;
 use DB;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -108,14 +107,14 @@ class ProductRepository implements ProductRepositoryInterface
 
 
     /**
-     * @param array $data
+     * @param array       $data
      * @param string|null $id
      *
      * @return ProductModel
      */
     private function saveProduct(array $data, ?string $id = null): ProductModel
     {
-        if ( ! HelperUtils::validateFields($data, ['nome', 'codigo', 'preco_unitario'])) {
+        if ( ! HelperUtils::validateFields($data, ['nome', 'codigo']) || empty(array_get($data, 'preco_unitario', 0))) {
             abort(HttpResponseStatusCodeEnum::NOT_FOUND, ResponseEnum::DATA_IS_NULL);
         }
 
@@ -133,7 +132,7 @@ class ProductRepository implements ProductRepositoryInterface
             abort(HttpResponseStatusCodeEnum::NOT_FOUND, ResponseEnum::NOT_FOUND);
         }
 
-        $product->codigo         = HelperUtils::array_get($data, 'codigo', $product->cpf ?: null);
+        $product->codigo         = HelperUtils::array_get($data, 'codigo', $product->codigo ?: null);
         $product->nome           = HelperUtils::array_get($data, 'nome', $product->nome ?: null);
         $product->preco_unitario = HelperUtils::array_get($data, 'preco_unitario', $product->preco_unitario ?: null);
         $product->save();

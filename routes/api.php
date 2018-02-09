@@ -34,5 +34,15 @@ Route::group(['prefix' => 'v1'], function () {
                 'destroy'
             ]
         ]);
+    Route::resource('order', '\App\Api\V1\Order\Controllers\OrderController',
+        [
+            'only' => [
+                'index',
+                'show',
+                'store',
+                'update',
+                'destroy'
+            ]
+        ]);
 });
 

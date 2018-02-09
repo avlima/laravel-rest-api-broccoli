@@ -5,8 +5,8 @@ use Faker\Generator as Faker;
 
 $factory->define(ProductModel::class, function (Faker $faker) {
     return [
-        'nome' => $faker->word,
-        'codigo' => $faker->unique()->numerify(),
+        'nome' => $faker->unique()->word.rand(1, 999),
+        'codigo' => $faker->unique()->randomDigit,
         'preco_unitario' => $faker->randomFloat(2, 1, 8)
     ];
 });

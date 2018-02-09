@@ -17,7 +17,7 @@ class CreateOrderItemTable extends Migration
             $table->uuid('id')->unique();
             $table->primary('id');
             $table->char('produto', 36)
-                  ->index('item_pedido_produto_id_foreign');
+                  ->index('item_pedido_produto_foreign');
             $table->foreign('produto')->references('id')->on('produto');
             $table->double('preco_unitario', 8, 2);
             $table->double('desconto', 8, 2);
@@ -33,7 +33,7 @@ class CreateOrderItemTable extends Migration
     public function down()
     {
         Schema::table('item_pedido', function ($table) {
-            $table->dropForeign('item_pedido_produto_id_foreign');
+            $table->dropForeign('item_pedido_produto_foreign');
         });
         Schema::dropIfExists('item_pedido');
     }
