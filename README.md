@@ -73,18 +73,18 @@ Deu medinho? Aqui é raiz, sai pra lá nutella.
 
 ### Nossas rotas (routes)
 ![](https://user-images.githubusercontent.com/13434925/36053895-d1a3ad60-0dda-11e8-9218-9f1aadd7ee04.png)
-> Todas as rotas Api com exceção DELETE, aceitam o parametro response_type (json, xml, csv, array, yaml). Exemplo: url?response_type=csv
-> Rotas POST retornará o status 201 de create, já as DELETE retornará 204 not content. (só pra deixar claro ;))
+> Todas as rotas Api com exceção DELETE, aceitam o parametro response_type (json, xml, csv, array, yaml). Exemplo: `url?response_type=csv`<br>
+> Rotas POST retornará o status 201 de create, já as DELETE retornará 204 not content. (só pra deixar claro ;))<br>
 > Devido ao tempo curto de esforço no projeto, eu não trabalhei em formatação de datas e etc...
 
 ### Estrutura do projeto
 > Foi pedido no teste para da uma lapidada no laravel já que ele é flexível e tal. Bom, minha opinião para vocês seria fazer em lumem já que o teste é uma API mesmo, com isso mesmo tranqueira pra limpar.(Detalhe eu não limpei muita coisa não, não tive tempo nem pra dormir então deixa quieto aí que o pouco que ta sobrando nao vai atrapalhar a gente não.)<br>
 
-> Estrutura base: **App\Api\V1** costumo fazer assim para APIs versionadas.
+> Estrutura base: **App\Api\V1** costumo fazer assim para APIs versionadas.<br>
 > Dentro do diretório **V1** teremos os módulos *Person, Product e Order*, e por sua vez cada um deles possui *Contracts, Controllers, Providers, Repositories e Models.*
 
 ### Aproveitando de tudo um pouco do laravel
-> Console, Factory, Migration, Seeder, Enum
+> Console, Factory, Migration, Seeder, Enum<br>
 > Os erros estão sendo centralizados no Handler, com isso o tratamento de erros fica muito mais fácil e retornando json ;)
 
 ### Test PHPUnit
@@ -95,7 +95,7 @@ vendor/bin/phpunit
 > Lembro que fiz os testes de request, mas nada muito complexo.
 
 ### Facilitando sua vida
-> Voce utiliza o Postman então aproiveita esse link e baixa a collection com todas as rotas configuradas e populas: https://www.getpostman.com/collections/2144d2cfff909266d329
+> Voce utiliza o Postman então aproiveita esse link e baixa a collection com todas as rotas configuradas e populas: https://www.getpostman.com/collections/2144d2cfff909266d329<br>
 > Se o link estiver quebrado então você pode pegar essa collection em formato json no diretorio `resources/assets/UDS-Desafio.postman_collection.json`
 
 ## Rodando o projeto
