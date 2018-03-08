@@ -1,5 +1,5 @@
-# uds-desafio-back-end
-Teste para candidatos à vaga de backend
+# laravel-rest-api-broccoli
+Laravel5.5 Application REST API in Broccoli Design Pattern
 by **Alberto Vieira de Lima (avlima|albertovieiradelima@gmail.com)**
 
 ## Ambiente
